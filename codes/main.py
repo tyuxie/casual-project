@@ -26,4 +26,5 @@ if __name__ == '__main__':
     # mle_dr_bad(estimator='LATE')
 
     print('running mle_dr_bad, MLATE')
-    mle_dr_bad(estimator='MLATE')
+
+    # mle_dr_bad(estimator='MLATE')

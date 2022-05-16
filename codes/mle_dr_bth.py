@@ -201,6 +201,3 @@ def mle_dr_bth(estimator='LATE'):
 ###
 ##对初值敏感(没有先验知识时可能造成无法训练出来)，对学习率敏感
 ##添加贝叶斯先验分布时可能的改进
-
-
-mle_dr_bth(estimator='LATE')

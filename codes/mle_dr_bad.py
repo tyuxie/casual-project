@@ -139,7 +139,6 @@ def MLE(X, Xpl, Xpr, estimator='LATE', dr=True):
         # print('Iter {} | loss {:.04f}'.format(i+1, loss.item()))
         loss.backward()
         opt.step()
-    print(loss.item())
 
     if not dr:
         return mlealpha, mlebeta, mleeta, mlegamma, minimum, optloss
