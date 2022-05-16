@@ -28,7 +28,7 @@ method:
 - Abadie(2003). 用logistic model to parametrize the **local average treatment effect** $E(Y(d)|D(1)>D(0), X)$. 问题: 模型可解释性差. 需要明确$p(Z=1|X)$.
 - Okui(2012), Ogburn(2015). 
 
-# Experiments
+# Simulation
 We generate data following the same setup in the paper. Our model shares **the same functional form** with the data generating models. 
 
 Three parts of models:
@@ -52,3 +52,8 @@ About results analysis.
 - For each time, we can calculate empirical C.I. using 500 bootstrap samples. Therefore, we can obtain 1000 confidence intervals. Then the converage probability and average C.I. length can be calculated. 
 
 (We will optimize 500000 models!!)
+
+# Real Data
+- target: whether 401(k) contributions represent additional savings or simply replace other retirement plans.
+- Unobserved cofounders: the underlying preference for savings. Eligibility is determined by employers individual prederences.
+- 

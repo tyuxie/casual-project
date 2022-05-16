@@ -36,6 +36,7 @@ def generate(X, alpha, beta, eta, gamma, estimator="LATE"):
     return Z, DY[:,0], DY[:,1]
 
 def nll(X,Z,D,Y,alpha,beta,eta,gamma,estimator='LATE'):
+
     phi = torch.sigmoid(X@beta)
     c1, c2, c3, c4 = phi[:,0], phi[:,1], phi[:,2], phi[:,3]
     if estimator == 'LATE':
@@ -200,3 +201,6 @@ def mle_dr_bth(estimator='LATE'):
 ###
 ##对初值敏感(没有先验知识时可能造成无法训练出来)，对学习率敏感
 ##添加贝叶斯先验分布时可能的改进
+
+
+mle_dr_bth(estimator='LATE')
