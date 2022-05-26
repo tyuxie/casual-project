@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import sys
-
+import time
 def nll(X,Z,D,Y,alpha,beta,eta,gamma,estimator='LATE'):
     # print(X.type(), beta.type())
     phi = torch.sigmoid(X@beta)
@@ -72,7 +72,7 @@ def MLE(X, Z, D ,Y, estimator='MLATE', dr=True):
     gamma = nn.Parameter(torch.rand(size=(p,))*0.2-0.1)
     opt = torch.optim.Adam(params=(alpha, beta, eta, gamma), lr=1e-3, weight_decay=0)
     optloss = float('inf')
-    for i in range(50000):
+    for i in range(10000):
         opt.zero_grad()
         loss = -nll(X,Z,D,Y,alpha,beta,eta,gamma, estimator)
         if loss.item() < optloss:
@@ -96,7 +96,7 @@ def MLE(X, Z, D ,Y, estimator='MLATE', dr=True):
     # alpha = nn.Parameter(torch.rand(size=(2,))*2-1)
     opt = torch.optim.Adam(params=(alpha,), lr=1e-3, weight_decay=0)
     sqoptloss = float('inf')
-    for i in range(20000):
+    for i in range(10000):
         opt.zero_grad()
         sq_loss = square_loss(X, Z, D, Y, alpha, mlebeta, mlegamma, mleeta, estimator, strategy='optimal')
         if i % 100 ==0:
@@ -122,19 +122,21 @@ D = data[:,7]
 Y = data[:,8]
 
 N, p = X.shape
-NR = 500
-torch.manual_seed(6971)
+NR = 100
+rdn_seed = 5
+torch.manual_seed(rdn_seed)
 mlealphas = torch.zeros(size=(NR, p))
 drwalphas = torch.zeros(size=(NR, p))
 minimums, optlosses = [], []
 for i in range(NR):
+    t = time.time()
     print('Bootstrap {}'.format(i+1), '-'*50)
     idxes = torch.multinomial(torch.ones(N), N, replacement=True)
     Xdata, Zdata, Ddata, Ydata = X[idxes].clone(), Z[idxes].clone(), D[idxes].clone(), Y[idxes].clone()
     mlealpha, drwalpha, mlebeta, mleeta, mlegamma = MLE(Xdata, Zdata, Ddata, Ydata)
     mlealphas[i] = mlealpha
     drwalphas[i] = drwalpha
+    print('time used: ', time.time()-t)
 
-
-torch.save(mlealphas, 'real_mlealpha.pt')
-torch.save(drwalphas, 'real_mlealpha.pt')
+torch.save(mlealphas, 'real_mlealpha{}.pt'.format(rdn_seed))
+torch.save(drwalphas, 'real_drwalpha{}.pt'.format(rdn_seed))
