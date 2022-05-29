@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.12)  28 MAY 2022 23:02
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.12)  29 MAY 2022 10:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -981,10 +981,48 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
 File: figure/simulation.png Graphic file (type bmp)
 <figure/simulation.png>
 
-Overfull \vbox (5.62846pt too high) detected at line 532
+Overfull \vbox (5.62846pt too high) detected at line 531
  []
 
 [37
+
+] [38
+
+] [39
+
+]
+File: figure/0.eps Graphic file (type eps)
+<figure/0.eps>
+File: figure/1.eps Graphic file (type eps)
+<figure/1.eps>
+File: figure/2.eps Graphic file (type eps)
+<figure/2.eps>
+File: figure/3.eps Graphic file (type eps)
+<figure/3.eps>
+File: figure/4.eps Graphic file (type eps)
+<figure/4.eps>
+File: figure/5.eps Graphic file (type eps)
+<figure/5.eps>
+ [40
+
+]
+File: figure/401k1.png Graphic file (type bmp)
+<figure/401k1.png>
+
+Overfull \vbox (8.60432pt too high) detected at line 599
+ []
+
+[41
+
+]
+File: figure/401k2.png Graphic file (type bmp)
+<figure/401k2.png>
+ [42
+
+]
+File: figure/401k3.png Graphic file (type bmp)
+<figure/401k3.png>
+ [43
 
 ]
 \tf@nav=\write6
@@ -1001,12 +1039,12 @@ Package rerunfilecheck Info: File `sample.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 22997 strings out of 476919
- 417665 string characters out of 5821839
- 688954 words of memory out of 5000000
- 42402 multiletter control sequences out of 15000+600000
+ 23054 strings out of 476919
+ 418423 string characters out of 5821839
+ 689290 words of memory out of 5000000
+ 42449 multiletter control sequences out of 15000+600000
  435644 words of font info for 169 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,16n,132p,515b,428s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on sample.pdf (37 pages).
+Output written on sample.pdf (43 pages).

@@ -524,10 +524,93 @@ and the following model misspecification scenarios:
 \end{frame}
 \begin{frame}{Simulation Studies: Results}
 Here are the results of simulation studies reported by the authors.
-
 \begin{figure}
 \centering
 \includegraphics[width=0.65\textwidth]{figure/simulation.png}
 \end{figure}
+\end{frame}
+
+\begin{frame}{401(k) Data}
+The 401(k) plan has become the most popular employer-sponsored retirement plan in the U.S.A. Economists have long been interested in whether 401(k) contributions represent additional savings or simply replace other retirement plans, such as Individual Retirement Accounts.
+
+Our 401(k) dataset contains 9275 individuals and the following variables:
+\begin{itemize}
+\item e401k                        =1 if eligble for 401(k).
+\item inc                          annual income
+\item marr                         =1 if married 
+\item male                         =1 if male respondent 
+\item age                          in years 
+\item fsize                        family size  
+\item nettfa                       net total fin. assets, 1000
+\item p401k                        =1 if participate in 401(k) 
+\item pira                         =1 if have IRA 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{401(k) Data}
+We choose 
+\begin{itemize}
+\item e401(k) (eligble for 401(k)) as instrumental variable.
+\item p401(k) (participation in 401(k)) as treatment indicator.
+\item pira(k) (have IRA) as response variable.
+\item intercept, inc, $inc^2$, age, marr, fsize as covariates.
+\end{itemize}
+
+Our model assumptions are:
+\begin{itemize}
+\item Local treatment effect is modelled as $\delta^M(X) = \exp(\alpha'X)$.
+\item Since individuals may choose to participate in 401(k) plans, there are no defiers and or always takers. As a result, $\phi_2\equiv 0, \phi_2\phi_4=\equiv 0$, and the model of $P(D,Y|Z)$ can be determined by $\delta^M(X), \phi_1(X),\phi_3(X), OP^{CO}(X)$.
+\end{itemize}
+In our real data experiments, we use mle and drw without misspecification to estimate the parameters.
+\end{frame}
+
+\begin{frame}{401(k) Data: Results}
+\begin{figure}
+\begin{minipage}{0.4\textwidth}
+\includegraphics[width=\textwidth]{figure/0.eps}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\includegraphics[width=\textwidth]{figure/1.eps}
+\end{minipage}
+
+\begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figure/2.eps}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figure/3.eps}
+    \end{minipage}
+
+\begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figure/4.eps}
+    \end{minipage}
+    \begin{minipage}{0.4\textwidth}
+    \includegraphics[width=\textwidth]{figure/5.eps}
+    \end{minipage}
+\caption{95\% confidence intervals of coefficients in MLATE using different methods}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+Here are the results reported by the authors:
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{figure/401k1.png}
+\caption{95\% confidence intervals of coefficients in MLATE using different methods (Part I)}
+\end{figure}
+\end{frame}
+
+\begin{frame}{401(k) Data: Results}
+Here are the results reported by the authors:
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figure/401k2.png}
+\caption{95\% confidence intervals of coefficients in MLATE using different methods (Part II)}
+\end{figure}
+\end{frame}
+
+\begin{frame}{401(k) Data: Results}
+\begin{figure}
+\includegraphics[width=0.9\textwidth]{figure/401k3.png}
+\caption{95\% confidence intervals of MLATE using different methods}
+\end{figure}
+We may find that the two proposed methods (mle and drw) tend to give a conservative of local treatment effect and enjoy smaller variance.
 \end{frame}
 \end{document}
