@@ -32,8 +32,9 @@
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
 \usepackage{xcolor}         % colors
-
-
+\usepackage{makecell}
+\usepackage{graphicx}
+\graphicspath{{figures}}
 \title{Formatting Instructions For NeurIPS 2022}
 
 
@@ -137,24 +138,24 @@ We also investigate the performance of these methods in misspecified scenarios. 
 \begin{table}
 \footnotesize
 \centering
-\begin{tabular}[h]{c|cc|cc}
+\begin{tabular}[h]{c|p{2cm}<{\centering}p{2cm}<{\centering}|p{2cm}<{\centering}p{2cm}<{\centering}}
 \toprule
     & \multicolumn{2}{c|}{LATE} &\multicolumn{2}{c}{MLATE}\\
 \midrule
     Method & $\alpha_0$ & $\alpha_1$ & $\alpha_0$ & $\alpha_1$\\
 \midrule
-    mle.bth&4.55 (0.44) & 9.31 (0.93)&13.81 (0.81) & 18.33 (1.32)\\
-    mle.opc&5.86 (0.48) & 11.94 (0.95)&16.47 (0.85) & 21.11 (1.35)\\
-    mle.psc&5.86 (0.48) & 11.94 (0.95)&16.47 (0.85) & 21.11 (1.35)\\
-    mle.bad&19.15 (0.69) & 2.80 (0.62)&41.28 (1.46) & 0.53 (1.05)\\
-    dru.bth&0.95 (0.45) & 6.16 (1.04)&3.58 (1.00) & 9.75 (1.79)\\
-    dru.opc&1.21 (0.43) & 4.55 (0.97)&0.02 (1.05) & 10.78 (1.99)\\
-    dru.psc&1.21 (0.43) & 4.55 (0.97)&0.02 (1.05) & 10.78 (1.99)\\
-    dru.bad&15.25 (0.70) & 29.99 (1.80)&25.23 (1.43) & 17.30 (2.56)\\
-    drw.bth&0.29 (1.04) & 1.55 (1.20)&3.04 (1.24) & 4.75 (1.77)\\
-    drw.opc&3.71 (1.27) & 0.63 (1.45)&0.30 (1.10) & 6.39 (1.78)\\
-    drw.psc&3.71 (1.27) & 0.63 (1.45)&0.30 (1.10) & 6.39 (1.78)\\
-    drw.bad&10.97 (0.56) & 13.68 (1.19)&29.54 (1.65) & 4.18 (2.59)\\
+\texttt{mle.bth}&4.55 (0.44) & 9.31 (0.93)&13.81 (0.81) & 18.33 (1.32)\\
+\texttt{mle.opc}&5.86 (0.48) & 11.94 (0.95)&16.47 (0.85) & 21.11 (1.35)\\
+\texttt{mle.psc}&5.86 (0.48) & 11.94 (0.95)&16.47 (0.85) & 21.11 (1.35)\\
+\texttt{mle.bad}&19.15 (0.69) & 2.80 (0.62)&41.28 (1.46) & 0.53 (1.05)\\
+\texttt{dru.bth}&0.95 (0.45) & 6.16 (1.04)&3.58 (1.00) & 9.75 (1.79)\\
+\texttt{dru.opc}&1.21 (0.43) & 4.55 (0.97)&0.02 (1.05) & 10.78 (1.99)\\
+\texttt{dru.psc}&1.21 (0.43) & 4.55 (0.97)&0.02 (1.05) & 10.78 (1.99)\\
+\texttt{dru.bad}&15.25 (0.70) & 29.99 (1.80)&25.23 (1.43) & 17.30 (2.56)\\
+\texttt{drw.bth}&0.29 (1.04) & 1.55 (1.20)&3.04 (1.24) & 4.75 (1.77)\\
+\texttt{drw.opc}&3.71 (1.27) & 0.63 (1.45)&0.30 (1.10) & 6.39 (1.78)\\
+\texttt{drw.psc}&3.71 (1.27) & 0.63 (1.45)&0.30 (1.10) & 6.39 (1.78)\\
+\texttt{drw.bad}&10.97 (0.56) & 13.68 (1.19)&29.54 (1.65) & 4.18 (2.59)\\
 \bottomrule
 \end{tabular}
 \caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios (repeated by us)}
@@ -164,27 +165,27 @@ We also investigate the performance of these methods in misspecified scenarios. 
 \begin{table}
 \footnotesize
 \centering
-\begin{tabular}[h]{c|cc|cc}
+\begin{tabular}[h]{c|p{2cm}<{\centering}p{2cm}<{\centering}|p{2cm}<{\centering}p{2cm}<{\centering}}
 \toprule
     & \multicolumn{2}{c|}{LATE} &\multicolumn{2}{c}{MLATE}\\
 \midrule
     Method & $\alpha_0$ & $\alpha_1$ & $\alpha_0$ & $\alpha_1$\\
 \midrule
-    mle.bth&0.28 (0.35) & -3.5 (0.78)&-0.092 (0.71) &-3.0 (1.2)\\
-    mle.bad&-20 (0.42) & -15 (0.80)&-48 (1.2) & -18 (2.1)\\
-    drw.bth&0.55 (0.36) & -4.1 (0.82)&-0.54 (0.77) & -5.6 (1.5)\\
-    drw.psc&0.060 (0.38) & -5.9 (1.0)&-0.38 (1.2) & -12 (2.7)\\
-    drw.opc&0.55 (0.36) & -3.9 (0.79)&0.49 (0.75) & -5.3 (1.4)\\
-    drw.bad&-10 (0.40) & -9.6 (1.1)&-28 (1.4) & 25 (3.3)\\
-    dru.bth&1.3 (0.44) & -5.8 (1.0)&1.8 (0.84) & -8.1 (1.7)\\
-    reg.ogburn.bth&-5.7 (1.6) & -2.9 (3.1)&1.8 (0.84) & -8.1 (1.7)\\
-    reg.ogburn.bad&-9.0 (0.25) & 100 (0.23)&140 (5.6) & 93 (3.6)\\
-    drw.ogburn.bth&0.10 (0.46) & -4.2 (0.99)&3.2 (1.4) & -13 (2.5)\\
-    dru.ogburn.bth&1.3 (0.45) & -5.8 (1.1)&1.9 (0.85) & -8.2 (1.7)\\
-    dru.wang.bth&1.3 (0.45) & -5.8 (1.1)&- & -\\
-    ls.abadie.bth&-0.19 (0.37) & -4.1 (0.93)&0.42 (0.79) & -11 (1.6)\\
-    ls.abadie.bad&-23 (0.88) & 22 (1.2)&-32 (1.9) & 7.7 (3.6)\\
-    mle.crude&-2.8 (0.10) &60 (0.19)&0.36 (0.25) & 51 (0.42)\\
+\texttt{mle.bth}&0.28 (0.35) & -3.5 (0.78)&-0.092 (0.71) &-3.0 (1.2)\\
+\texttt{mle.bad}&-20 (0.42) & -15 (0.80)&-48 (1.2) & -18 (2.1)\\
+\texttt{drw.bth}&0.55 (0.36) & -4.1 (0.82)&-0.54 (0.77) & -5.6 (1.5)\\
+\texttt{drw.psc}&0.060 (0.38) & -5.9 (1.0)&-0.38 (1.2) & -12 (2.7)\\
+\texttt{drw.opc}&0.55 (0.36) & -3.9 (0.79)&0.49 (0.75) & -5.3 (1.4)\\
+\texttt{drw.bad}&-10 (0.40) & -9.6 (1.1)&-28 (1.4) & 25 (3.3)\\
+\texttt{dru.bth}&1.3 (0.44) & -5.8 (1.0)&1.8 (0.84) & -8.1 (1.7)\\
+\texttt{reg.ogburn.bth}&-5.7 (1.6) & -2.9 (3.1)&1.8 (0.84) & -8.1 (1.7)\\
+\texttt{reg.ogburn.bad}&-9.0 (0.25) & 100 (0.23)&140 (5.6) & 93 (3.6)\\
+\texttt{drw.ogburn.bth}&0.10 (0.46) & -4.2 (0.99)&3.2 (1.4) & -13 (2.5)\\
+\texttt{dru.ogburn.bth}&1.3 (0.45) & -5.8 (1.1)&1.9 (0.85) & -8.2 (1.7)\\
+\texttt{dru.wang.bth}&1.3 (0.45) & -5.8 (1.1)&- & -\\
+\texttt{ls.abadie.bth}&-0.19 (0.37) & -4.1 (0.93)&0.42 (0.79) & -11 (1.6)\\
+\texttt{ls.abadie.bad}&-23 (0.88) & 22 (1.2)&-32 (1.9) & 7.7 (3.6)\\
+\texttt{mle.crude}&-2.8 (0.10) &60 (0.19)&0.36 (0.25) & 51 (0.42)\\
 \bottomrule
 \end{tabular}
 \caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios (reported by ARTICLE)}
@@ -193,11 +194,124 @@ We also investigate the performance of these methods in misspecified scenarios. 
 
 Results repeated by us and reported by ARTICLE are presented in Table \ref*{ourbias} and Table \ref*{theirbias} respectively. Firstly, our results is different from ARTICLE, but they are roughly of the same magnitude. The reason for this difference is that we use different optimization methods and the covariates $X, X^\dagger$ are generated randomly. Secondly, in Table \ref*{theirbias}, the estimators \texttt{mle}, \texttt{drw}, \texttt{dru} generally have small bias and small standard error relative to other methods when all nuisance models are correctly specified, which vefiries the validity and efficiency of the method proposed by ARTICLE. Thirdly, in Table \ref*{theirbias}, we can also find that the performances of \texttt{dru.ogburn.bth}, \texttt{dru.wang.bth}, \texttt{dru.bth} are similar and less efficient than \texttt{drw.bth}, which implies that estimators using the optimal weighting function is more efficient than estimators using identity weighting function. At last, in Table \ref*{ourbias}, the two doubly robust estimators \texttt{drw} and \texttt{dru} performs worser than \texttt{mle} in the misspecification scenarios, which suggests the weighting function may yields less efficient estimations when model is misspecified. This phenomenon is not stated by ARTICLE, and they only partly reported their results.
 
+\begin{table}
+\footnotesize
+\centering
+\begin{tabular}[h]{c|p{2cm}<{\centering}p{2cm}<{\centering}|p{2cm}<{\centering}p{2cm}<{\centering}}
+\toprule
+  & \multicolumn{2}{c|}{LATE} &\multicolumn{2}{c}{MLATE}\\
+\midrule
+  Method & $\alpha_0$ & $\alpha_1$ & $\alpha_0$ & $\alpha_1$\\
+\midrule
+\texttt{mle.bth} & 95.6 & 95.8 & 95.4 & 96.4\\
+\texttt{mle.bad} & 65.4 & 91.0 & 46.3 & 94.6\\
+\texttt{drw.bth} & 94.7 & 95.2 & 96.9 & 95.9\\
+\texttt{drw.psc} & 95.4 & 95.5 & 97.6 & 97.4\\
+\texttt{drw.opc} & 95.0 & 95.6 & 96.1 & 96.1\\
+\texttt{drw.bad} & 87.0 & 95.3 & 91.8 & 96.8\\
+\texttt{dru.bth} & 94.5 & 94.6 & 96.3 & 96.9\\
+\texttt{reg.ogburn.bth} & 98.0 & 99.9 & 99.6 & 100.0\\
+\texttt{reg.ogburn.bad} & 75.6 & 0.1 & 99.9 & 86.1\\
+\texttt{drw.ogburn.bth} & 97.0 & 98.1 & 98.5 & 98.4\\
+\texttt{dru.ogburn.bth} & 94.5 & 95.0 & 96.2 & 97.2\\
+\texttt{dru.wang.bth} & 94.4 & 94.7 & - & -\\
+\texttt{dru.simple.bth} & 94.3 & 94.8 & 96.1 & 96.5\\
+\texttt{ls.abadie.bth} & 94.8 & 95.5 & 96.4 & 95.6\\
+\texttt{ls.abadie.bad} & 87.3 & 94.5 & 93.1 & 95.7\\
+\texttt{mle.crude} & 84.3 & 0.0 & 94.0 & 6.3\\
+\bottomrule
+\end{tabular}
+\caption{Coverage probabilities $(\times 100)$ of confidence interval obtained from 500 bootstrap samples in selected scenarios (reported by ARTICLE)}
+\label{coverage}
+\end{table}
+
+Table \ref*{coverage} is the selected coverage probabilities of $95\%$ confidence intervals obtained from the quantile bootstrap based on 500 bootstrap samples, reported by ARTICLE. We do not repeat the experiements of coverage probabilities since it cost too much time. Firstly, \texttt{mle} is less efficient in the misspecification scenarios when estimating the intercept $\alpha_0$; in these scenarios, the doubly robust estimator with optimal weighting function \texttt{drw} seems better than \texttt{mle}. ARTICLE did not report the results of \texttt{dru} and did not explain why. Secondly, \texttt{mle}, \texttt{drw} and \texttt{dru} have higher converage probabilities than other methods, except for \texttt{reg.ogburn} and \texttt{drw.ogburn}. The authors of ARTICLE guessed it is due to misspecification of variation-dependent models.
 
 \section{Experiments on 401(k) Data}
-To explore the performances of estimators proposed by ARTICLE as well as other compared estimators, we use them to analyze the 401(k) data. According to Wikipedia, in the United States, a 401(k) plan is an employer-sponsored, defined-contribution, personal pension (savings) account, as defined in subsection 401(k) of the U.S. Internal Revenue Code. Collected by Employee Benefit Research Institute (EBRI) and the Investment Company Institute (ICI), 401(k) is the largest, most representative repository of information about individual 401(k) plan participant accounts.
+To explore the performances of estimators proposed by ARTICLE as well as other compared estimators, we use them to analyze the 401(k) data. According to Wikipedia, in the United States, a 401(k) plan is an employer-sponsored, defined-contribution, personal pension (savings) account, as defined in subsection 401(k) of the U.S. Internal Revenue Code. Collected by Employee Benefit Research Institute (EBRI) and the Investment Company Institute (ICI), 401(k) is the largest, most representative repository of information about individual 401(k) plan participant accounts. To be more specific, we aim to investigate whether the participation in 401(k) will reduce the paticipation in another retirement plan - Individual Retirement Accounts. 
 
-collect annual data on millions of 401(k) plan participants as a means to examine how these participants manage their 401(k) plan accounts. 
+There may exists unobserved individual-level confounders such as the consuming willingness which influence the participation in 401(k) and Individual Retirement Accounts, thus directly estimating the treatment effect may yield invalid causal inferences. Therefore, we might wonder a instrumental variable irrelevant to the unobserved individual confounders. Following Ababie (2003), we choose eligibility for 401(k) as an instrument variable. Determined by companies, eligibility is weakly relevant to the individual-level variables. The monotonicity and instrumental variable relevance assumptions holds since only those eligible for 401(k) may participate in it.
+
+ARTICLE argued that eligibility for 401(k) has an impact on participation in Individual Retirement Accounts only through participation in 401(k) plans. However, it seems that this argument is problematic since the employees who is eligible for 401(k) is more likely to be eligible for Individual Retirement Accounts. In our review, we will set this problem aside, and repeat the real data studies in ARTICLE using the dataset provided by Abadie (2003). In the following, we will use '401(k) data' to refer to this dataset.
+
+401(k) data consists of 9275 individuals from the Survey of Income and Program Participation of 1991. It has the following 11 variables:
+\begin{itemize}
+  \item  e401k; {\it =1 if eligble for 401(k).}
+  \item inc;  {\it annual income}
+  \item marr;  {\it = 1 if married}
+  \item male; {\it=1 if male respondent }
+  \item age; {\it age of an individual, in years}
+  \item fsize; {\it family size  }
+  \item nettfa; {\it net total fin. assets}
+  \item p401k; {\it =1 if participate in 401(k) }
+  \item pira; {\it =1 if have Individual Retirement Accounts }
+ \item incsq;  {\it $inc^2$}
+ \item agesq;  {\it $age^2$}
+\end{itemize}
+
+
+Following the same setting as ARTICLE, we use the same instrumental variable model to estimate the multiplicative local average treatment effect of 401(k) participation on the participation in IRA. we use e401k as instrumental variable, p401k as treatment variable and pira as response variable. The covariate $X$ include an intercept, inc, $\mathrm{inc}^2$, age, marr and fsize. 
+Since only those eligible for 401(k) will participate in it, i.e. $D(0) = 0$, there is no defiers and always takers. This implies the probability of an individual's being always taker conditional on his being always taker or never taker is zero,i.e. $\phi_2(X) \equiv 0$. In the parameterization of $\mathrm{Pr}(D, Y| Z)$, $\phi_4$ is always multiplied by $\phi_2$, thus the model of $\mathrm{Pr}(D, Y| Z)$ can be uniquely represented by $\delta^\mathrm{M}, \phi_1, \phi_3$ and ${ }_{\mathrm{OP}}{ }^{\mathrm{CO}}$.
+
+The models for $\delta^\mathrm{M}, \phi_1, \phi_3$ and ${ }_{\mathrm{OP}}{ }^{\mathrm{CO}}$  are
+\begin{equation}
+\left\{
+\begin{array}{l}
+\delta^{\mathrm{M}}(X) = \exp(\alpha' X);\\
+\phi_1(X) = \mathrm{sigmoid}(\beta_1' X);\\
+\phi_3(X) = \mathrm{sigmoid}(\beta_2' X);\\
+{ }_{\mathrm{OP}}{ }^{\mathrm{CO}}(X) = \exp(\eta^T X)\\
+P(Z=1|X) = \mathrm{sigmoid}(\gamma' X).
+\end{array}
+\right.
+\end{equation}
+which are generally in log-linear family and logit-lieanr family. This two family is less flexible compared to machine learning models, such as energy based model. Future works may investigate the performances of these proposed methods with energy based model. We repeat the experiements of methods \texttt{mle} and \texttt{drw}, and cite the results of methods  \texttt{drw.ogburn},  \texttt{dru.ogburn},  \texttt{ls.abadie} and  \texttt{mle.crude} reported by ARTICLE.
+
+\begin{figure}
+\centering
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{0.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{1.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{2.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{3.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{4.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{5.eps}
+\end{minipage}
+\caption{95\% Confidence intervals of estimates of coefficients in $\delta^{\mathrm{M}}$ using different methods (Repeated by us)}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all0.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all1.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all2.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all3.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all4.eps}
+\end{minipage}
+\begin{minipage}{0.48\linewidth}
+\includegraphics[width=\linewidth]{all5.eps}
+\end{minipage}
+\caption{95\% Confidence intervals of estimates of coefficients in $\delta^{\mathrm{M}}$ using different methods (Reported by ARTICLE)}
+\end{figure}
 % Table $2 .$ Bias $(\times 100)$ and standard error $(\times 100$, in parentheses $)$ of the estimated biases in the Monte Carlo study of various estimators in the selected scenarios; the true values of $\alpha$ c and $\alpha_{1}$ are 0 and $-1$, respectively, and the sample size is 1000
 % $$
 % \begin{aligned}
