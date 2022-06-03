@@ -106,7 +106,7 @@ Data is generated from the following models:
 \end{array}
 \right.
 \end{equation}
-where we set $\alpha=(0,-1)^{\mathrm{T}}, \beta_{i}=(-0.4,0.8)^{\mathrm{T}},i=1, \ldots, 4, \eta=(-0.4,1)^{\mathrm{T}}$ and $\gamma=(0.1,-1)^{\mathrm{T}}$. The covariates $X$ has two dimensions, including an intercept and another covariate generated from Uniform$(-1,1)$.
+where we set $\alpha=(0,-1)^{\mathrm{T}}, \beta_{i}=(-0.4,0.8)^{\mathrm{T}},i=1, \ldots, 4, \eta=(-0.4,1)^{\mathrm{T}}$ and $\gamma=(0.1,-1)^{\mathrm{T}}$. The covariates $X$ has two dimensions, including an intercept and another covariate generated from Uniform$(-1,1)$. Our goal is to estimate $\alpha$ and then estimate the local average treatment effect, while other nuisance parameters are estimable but of no interest.
 
 Similar to ARTICLE, we will fit models of the same functional form as in (\ref*{generate}), although this is impossible in practical applications. We repeat the simulation studies of 
 \begin{itemize}
@@ -157,7 +157,8 @@ We also investigate the performance of these methods in misspecified scenarios. 
     drw.bad&10.97 (0.56) & 13.68 (1.19)&29.54 (1.65) & 4.18 (2.59)\\
 \bottomrule
 \end{tabular}
-\caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios}
+\caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios (repeated by us)}
+\label{ourbias}
 \end{table}
 
 \begin{table}
@@ -177,12 +178,27 @@ We also investigate the performance of these methods in misspecified scenarios. 
     drw.bad&-10 (0.40) & -9.6 (1.1)&-28 (1.4) & 25 (3.3)\\
     dru.bth&1.3 (0.44) & -5.8 (1.0)&1.8 (0.84) & -8.1 (1.7)\\
     reg.ogburn.bth&-5.7 (1.6) & -2.9 (3.1)&1.8 (0.84) & -8.1 (1.7)\\
+    reg.ogburn.bad&-9.0 (0.25) & 100 (0.23)&140 (5.6) & 93 (3.6)\\
+    drw.ogburn.bth&0.10 (0.46) & -4.2 (0.99)&3.2 (1.4) & -13 (2.5)\\
+    dru.ogburn.bth&1.3 (0.45) & -5.8 (1.1)&1.9 (0.85) & -8.2 (1.7)\\
+    dru.wang.bth&1.3 (0.45) & -5.8 (1.1)&- & -\\
+    ls.abadie.bth&-0.19 (0.37) & -4.1 (0.93)&0.42 (0.79) & -11 (1.6)\\
+    ls.abadie.bad&-23 (0.88) & 22 (1.2)&-32 (1.9) & 7.7 (3.6)\\
+    mle.crude&-2.8 (0.10) &60 (0.19)&0.36 (0.25) & 51 (0.42)\\
 \bottomrule
 \end{tabular}
-\caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios}
+\caption{bias $\times$ 100 (standard error $\times$ 100) of parameter estimation under different scenarios (reported by ARTICLE)}
+\label{theirbias}
 \end{table}
 
-Table $2 .$ Bias $(\times 100)$ and standard error $(\times 100$, in parentheses $)$ of the estimated biases in the Monte Carlo study of various estimators in the selected scenarios; the true values of $\alpha$ c and $\alpha_{1}$ are 0 and $-1$, respectively, and the sample size is 1000
+Results repeated by us and reported by ARTICLE are presented in Table \ref*{ourbias} and Table \ref*{theirbias} respectively. Firstly, our results is different from ARTICLE, but they are roughly of the same magnitude. The reason for this difference is that we use different optimization methods and the covariates $X, X^\dagger$ are generated randomly. Secondly, in Table \ref*{theirbias}, the estimators \texttt{mle}, \texttt{drw}, \texttt{dru} generally have small bias and small standard error relative to other methods when all nuisance models are correctly specified, which vefiries the validity and efficiency of the method proposed by ARTICLE. Thirdly, in Table \ref*{theirbias}, we can also find that the performances of \texttt{dru.ogburn.bth}, \texttt{dru.wang.bth}, \texttt{dru.bth} are similar and less efficient than \texttt{drw.bth}, which implies that estimators using the optimal weighting function is more efficient than estimators using identity weighting function. At last, in Table \ref*{ourbias}, the two doubly robust estimators \texttt{drw} and \texttt{dru} performs worser than \texttt{mle} in the misspecification scenarios, which suggests the weighting function may yields less efficient estimations when model is misspecified. This phenomenon is not stated by ARTICLE, and they only partly reported their results.
+
+
+\section{Experiments on 401(k) Data}
+To explore the performances of estimators proposed by ARTICLE as well as other compared estimators, we use them to analyze the 401(k) data. According to Wikipedia, in the United States, a 401(k) plan is an employer-sponsored, defined-contribution, personal pension (savings) account, as defined in subsection 401(k) of the U.S. Internal Revenue Code. Collected by Employee Benefit Research Institute (EBRI) and the Investment Company Institute (ICI), 401(k) is the largest, most representative repository of information about individual 401(k) plan participant accounts.
+
+collect annual data on millions of 401(k) plan participants as a means to examine how these participants manage their 401(k) plan accounts. 
+% Table $2 .$ Bias $(\times 100)$ and standard error $(\times 100$, in parentheses $)$ of the estimated biases in the Monte Carlo study of various estimators in the selected scenarios; the true values of $\alpha$ c and $\alpha_{1}$ are 0 and $-1$, respectively, and the sample size is 1000
 % $$
 % \begin{aligned}
 % \delta^{\mathrm{L}}(X) &=\tanh \left(\alpha^{\mathrm{T}} X\right), \quad \delta^{\mathrm{M}}(X)=\exp \left(\alpha^{\mathrm{T}} X\right) \\
