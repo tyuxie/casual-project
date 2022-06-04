@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.12)  3 JUN 2022 21:02
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.10.12)  4 JUN 2022 12:43
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -447,6 +447,7 @@ File: figures/4.eps Graphic file (type eps)
 <figures/4.eps>
 File: figures/5.eps Graphic file (type eps)
 <figures/5.eps>
+ [4]
 File: figures/all0.eps Graphic file (type eps)
 <figures/all0.eps>
 File: figures/all1.eps Graphic file (type eps)
@@ -459,17 +460,27 @@ File: figures/all4.eps Graphic file (type eps)
 <figures/all4.eps>
 File: figures/all5.eps Graphic file (type eps)
 <figures/all5.eps>
- [4] [5] [6] [7] [8] [9] [10] [11] (./main.aux)
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 60B1BD341E27EB22DC774DD78C2849DE;2769.
+File: figures/typical0.eps Graphic file (type eps)
+<figures/typical0.eps>
+File: figures/typical1.eps Graphic file (type eps)
+<figures/typical1.eps>
+ [5] [6] (./main.aux)
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 60B1BD341E27EB22DC774DD78C2849DE;2769
+(rerunfilecheck)             After:  02F65250B3C8D42C4DBD631CA11CE569;408.
  ) 
 Here is how much of TeX's memory you used:
- 11114 strings out of 476919
- 168354 string characters out of 5821839
- 533979 words of memory out of 5000000
- 30925 multiletter control sequences out of 15000+600000
- 431319 words of font info for 65 fonts, out of 8000000 for 9000
+ 11118 strings out of 476919
+ 168440 string characters out of 5821839
+ 532734 words of memory out of 5000000
+ 30927 multiletter control sequences out of 15000+600000
+ 426283 words of font info for 62 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 83i,11n,88p,1440b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,11n,88p,1440b,393s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (11 pages).
+Output written on main.pdf (6 pages).
